@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  ignite:
+    container_name: ignite
+    image: goignite/ignite
+    volumes:
+      - "./data:/root/ignite/data"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - HOST_ADDRESS=server-ip-address
+    ports:
+      - "5000:5000"
+    restart: always
+
+  ignite-admin:
+    container_name: ignite-admin
+    image: goignite/ignite-admin
+    volumes:
+      - "./data:/root/ignite/data"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - AUTH_USERNAME=admin
+      - AUTH_PASSWORD=admin_password
+      - Auth_SECRET=ignite2017
+    ports:
+      - "8000:8000"
+    restart: always

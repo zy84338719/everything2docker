@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    volumes:
+      - "./mysql/data:/var/lib/mysql"
+      - "./mysql/conf:/etc/mysql/conf.d"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ignite
+
+  ignite:
+    container_name: ignite
+    image: goignite/ignite
+    volumes:
+      - "./data:/root/ignite/data"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - HOST_ADDRESS=server-ip-address
+      - DB_DRIVER=${DB_DRIVER}
+      - DB_CONNECT=${DB_CONNECT}
+      #- HOST_FROM=5001
+      #- HOST_TO=6000
+    ports:
+      - "5000:5000"
+    restart: always
+
+  ignite-admin:
+    container_name: ignite-admin
+    image: goignite/ignite-admin
+    volumes:
+      - "./data:/root/ignite/data"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - DB_DRIVER=${DB_DRIVER}
+      - DB_CONNECT=${DB_CONNECT}
+      #- AUTH_USERNAME=admin
+      #- AUTH_PASSWORD=123
+      #- AUTH_SECRET=123
+    ports:
+      - "8000:8000"
+    restart: always

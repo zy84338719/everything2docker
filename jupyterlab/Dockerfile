@@ -12,6 +12,5 @@ USER root
 
 # 添加内核
 RUN conda install -c conda-forge ipywidgets beakerx
-RUN conda update jupyter
 RUN chown -R jovyan /home/jovyan/.* 
 RUN chgrp -R users /home/jovyan/.*

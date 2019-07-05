@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t jupyter_lab .
+sudo docker build -t jupyter_lab .

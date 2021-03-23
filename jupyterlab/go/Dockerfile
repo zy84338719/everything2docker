@@ -47,8 +47,10 @@ RUN set -x \
         ipaexg00301* \
     && rm -rf /var/cache/apk/*
 
+RUN useradd -ms /bin/bash murphyyi
+USER murphyyi
 # Set GOPATH.
-ENV GOPATH /go
-
+ENV GOPATH /home/murphyyi/go
+WORKDIR /home/murphyyi
 EXPOSE 8888
-CMD [ "jupyter", "notebook", "--no-browser", "--allow-root", "--ip=0.0.0.0" ]
+CMD [ "jupyter", "lab", "--no-browser", "--allow-root", "--ip=0.0.0.0" ]

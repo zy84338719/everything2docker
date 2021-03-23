@@ -1,7 +1,8 @@
 version: '2'
 services:
   zookeeper:
-    image: jplock/zookeeper   ## 镜像
+    image: jplock/zookeeper
+    ## 镜像
     ports:
       - "2181:2181"                 ## 对外暴露的端口号
   zkui:

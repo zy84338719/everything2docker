@@ -8,5 +8,5 @@ services:
     volumes:
       - /opt/jupyter:/home/jovyan/work
     restart: always
-    image: "jupyter/datascience-notebook"
-     #image: "jupyter_lab"
+#    image: "jupyter/datascience-notebook"
+    image: "jupyter_lab:latest"

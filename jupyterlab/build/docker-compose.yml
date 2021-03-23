@@ -1,0 +1,9 @@
+version: "3"
+services:
+  jupyter:
+    ports:
+      - "8888:80"
+    restart: always
+    image: "zy84338719/jupyterlab:all"
+    volumes: 
+      - /opt/docker/jupyter/python:/home

@@ -13,6 +13,7 @@ RUN apt update \
 
 VOLUME /home/
 WORKDIR /home/
+USER root
 
 EXPOSE 80
 

@@ -6,6 +6,6 @@ services:
     environment:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
-      - /opt/jupyter/murphyyi:/home/murphyyi
+      - /opt/jupyter/murphyyi:/
     restart: always
-    image: "zy84338719/gophernotes:latest"
+    image: "gopherdata/gophernotes:latest-ds"

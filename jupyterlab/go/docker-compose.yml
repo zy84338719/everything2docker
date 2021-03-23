@@ -5,7 +5,5 @@ services:
       - "8888:8888"
     environment:
       - JUPYTER_ENABLE_LAB=yes
-    volumes:
-      - /opt/jupyter/murphyyi:/
     restart: always
     image: "gopherdata/gophernotes:latest-ds"

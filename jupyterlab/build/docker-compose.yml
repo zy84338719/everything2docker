@@ -6,4 +6,4 @@ services:
     restart: always
     image: "zy84338719/jupyterlab:all"
     volumes: 
-      - /opt/docker/jupyter/python:/home
+      - /opt/jupyter/python:/home

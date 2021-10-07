@@ -1,2 +1,3 @@
 # Created by .ignore support plugin (hsz.mobi)
 /jupyterlab/go/gophernotes/
+/nginx/logs/*
